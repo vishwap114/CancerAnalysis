@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="CancerAnalysis.Master" %>
+
+<!DOCTYPE html>
+<html>   
+<head runat="server">
+    <title>Cancer Analysis</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D255">
+  		       <h1>Cancer Data Analysis</h1>
+  		       <p>Statistics of all the Cancer diagnosed patients from various locations and sources throughout the United States.</p> 
+	    </div>
+	    <nav class="nav navbar navbar-expand-sm navbar-light bg-light navbar-expand-sm bg-light justify-content-center" style="background-color:#C0C3D2; margin: 0; padding: 0">
+		    <ul class="bar navbar-nav nav-fill w-100">
+		        <li class="nav-item">
+		          <a class="nav-link active"" href="home.aspx">Home</a>
+		        </li>
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+		            Cancer Statistics
+		          </a>
+		          <div class="dropdown-menu">
+		            <a class="dropdown-item" href="CancerStat.aspx">Cancer Statistics Facts</a>
+		            <a class="dropdown-item" href="CancerTrend.aspx">Cancer Trends</a>
+		            <a class="dropdown-item" href="IncidenceRate.aspx">Incidence Rate</a>
+		          </div>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="News.aspx">News</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="About.aspx">About</a>
+		        </li>
+		    </ul>
+	    </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        
+
+<div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D255" >
+  <p>Footer</p>
+</div>
+</form>
+</body>
+</html>
