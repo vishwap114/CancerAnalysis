@@ -2,6 +2,62 @@
 
 <asp:Content id="PageContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <script type="text/javascript">
+        function createNewCancerCasesTrendsChart(data) {
+            chartManager = new ChartManager();
+            chartManager.createNewCancerCasesTrendsPieChart(data);
+        }
+
+        function createCancerDeathTrendsChart(data) {
+            chartManager = new ChartManager();
+            chartManager.createCancerDeathTrendsPieChart(data);
+        }
+
+        class ChartManager {
+            createNewCancerCasesTrendsPieChart(data) {
+                am4core.useTheme(am4themes_material);
+                am4core.useTheme(am4themes_animated);
+
+                var chart = am4core.create("newCancerCasesChartDiv", am4charts.PieChart);
+                chart.data = data;
+
+                var pieSeries = chart.series.push(new am4charts.PieSeries());
+                pieSeries.dataFields.value = "TotalCases";
+                pieSeries.dataFields.category = "CancerType";
+
+                pieSeries.slices.template.stroke = am4core.color("#fff");
+                pieSeries.slices.template.strokeWidth = 2;
+                pieSeries.slices.template.strokeOpacity = 1;
+
+                // This creates initial animation
+                pieSeries.hiddenState.properties.opacity = 1;
+                pieSeries.hiddenState.properties.endAngle = -90;
+                pieSeries.hiddenState.properties.startAngle = -90;
+            }
+
+            createCancerDeathTrendsPieChart(data) {
+                am4core.useTheme(am4themes_material);
+                am4core.useTheme(am4themes_animated);
+
+                var chart = am4core.create("cancerDeathsChartDiv", am4charts.PieChart);
+                chart.data = data;
+
+                var pieSeries = chart.series.push(new am4charts.PieSeries());
+                pieSeries.dataFields.value = "TotalDeaths";
+                pieSeries.dataFields.category = "CancerType";
+
+                pieSeries.slices.template.stroke = am4core.color("#fff");
+                pieSeries.slices.template.strokeWidth = 2;
+                pieSeries.slices.template.strokeOpacity = 1;
+
+                // This creates initial animation
+                pieSeries.hiddenState.properties.opacity = 1;
+                pieSeries.hiddenState.properties.endAngle = -90;
+                pieSeries.hiddenState.properties.startAngle = -90;
+            }
+        }
+    </script>
+
 <div class="container" style="margin-top:30px" runat="server">
   		<div class="row">
     		<div class="col-sm-4">
@@ -26,6 +82,15 @@
                 <div runat="server"> Facts
       			<ul class="nav nav-pills flex-column">
         			<li class="nav-item">
+          			    <a class="nav-link" href="#" onServerClick="GetNewCancerCasesTrends" runat="server">New cancer cases trend this year</a>
+        			</li>
+                    <li class="nav-item">
+          			    <a class="nav-link" href="#" onServerClick="GetCancerDeathsTrends" runat="server">Cancer deaths trend this year</a>
+        			</li>
+                    <li class="nav-item">
+          			<a class="nav-link" href="#" onServerClick="onClickF1" runat="server">New cancer cases trend this year</a>
+        			</li>
+                    <li class="nav-item">
           			<a class="nav-link" href="#" onServerClick="onClickF1" runat="server">Number of patients for each race</a>
         			</li>
         			<li class="nav-item">
@@ -46,6 +111,13 @@
     		</div>
     	<div class="col-sm-8">
       		<asp:MultiView runat="server" id="QueryMultiView">
+                <asp:View id="NewCancerCasesTrends" runat="server">
+                    <div id="newCancerCasesChartDiv" style="width:80%;height:250px;"/>
+                </asp:View>
+
+                <asp:View id="CancerDeathsTrends" runat="server">
+                    <div id="cancerDeathsChartDiv" style="width:80%;height:250px;"/>
+                </asp:View>
                
                 <asp:View id="Trend1" runat="server">
                     

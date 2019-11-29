@@ -6,5 +6,6 @@
 
         public string CancerType { get; set; }
         public long TotalCases { get; set; }
+        public long TotalDeaths { get; set; }
     }
 }
