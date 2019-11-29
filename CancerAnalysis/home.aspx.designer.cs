@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CancerAnalysis
-{
-
-
-    public partial class home
-    {
+namespace CancerAnalysis {
+    
+    
+    public partial class home {
     }
 }

@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="CancerAnalysis.home" MasterPageFile="Master.master" %>
-
 <asp:Content id="PageContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
     
 <br>
@@ -7,6 +6,7 @@
 	<div class="container" style="margin-top:30px">
   		<div class="row">
     		<div class="col-sm-4">
+               
       			<h2>About Me</h2>
       			<h5>Photo of me:</h5>
       			<div class="fakeimg">Fake Image</div>

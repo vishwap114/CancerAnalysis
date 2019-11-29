@@ -13,5 +13,29 @@ namespace CancerAnalysis
         {
 
         }
+        protected void onClickT1(object sender, EventArgs e)
+        {
+            QueryMultiView.SetActiveView(Trend1);
+        }
+        protected void onClickT2(object sender, EventArgs e)
+        {
+            QueryMultiView.SetActiveView(Trend2);
+        }
+        protected void onClickF1(object sender, EventArgs e)
+        {
+            QueryMultiView.SetActiveView(Fact1);
+        }
+        protected void onClickF2(object sender, EventArgs e)
+        {
+            QueryMultiView.SetActiveView(Fact2);
+        }
+        protected void onClickF3(object sender, EventArgs e)
+        {
+            QueryMultiView.SetActiveView(Fact3);
+        }
+        protected void onClickF4(object sender, EventArgs e)
+        {
+            QueryMultiView.SetActiveView(Fact4);
+        }
     }
 }

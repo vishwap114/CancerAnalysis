@@ -12,8 +12,8 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D255">
+     <form id="form1" runat="server">
+        <div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D2">
   		       <h1>Cancer Data Analysis</h1>
   		       <p>Statistics of all the Cancer diagnosed patients from various locations and sources throughout the United States.</p> 
 	    </div>
@@ -22,15 +22,8 @@
 		        <li class="nav-item">
 		          <a class="nav-link active"" href="home.aspx">Home</a>
 		        </li>
-		        <li class="nav-item dropdown">
-		          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-		            Cancer Statistics
-		          </a>
-		          <div class="dropdown-menu">
-		            <a class="dropdown-item" href="CancerStat.aspx">Cancer Statistics Facts</a>
-		            <a class="dropdown-item" href="CancerTrend.aspx">Cancer Trends</a>
-		            <a class="dropdown-item" href="IncidenceRate.aspx">Incidence Rate</a>
-		          </div>
+                <li class="nav-item">
+		          <a class="nav-link active"" href="CancerStat.aspx">Cancer Statistics</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link" href="News.aspx">News</a>
@@ -46,7 +39,7 @@
         </div>
         
 
-<div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D255" >
+<div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D2" >
   <p>Footer</p>
 </div>
 </form>

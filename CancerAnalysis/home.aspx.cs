@@ -11,7 +11,8 @@ namespace CancerAnalysis
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            DatabaseHandler db = new DatabaseHandler();
+            var temp = db.GetNewCancerCases();
         }
     }
 }
