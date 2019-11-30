@@ -3,6 +3,8 @@
 <asp:Content id="PageContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script type="text/javascript">
+        var chartColors = ["#4f81bd", "#c0504d", "#9bbb59", "#8064a2", "#4bacc6"];
+
         function createNewCancerCasesTrendsChart(data) {
             chartManager = new ChartManager();
             chartManager.createNewCancerCasesTrendsPieChart(data);
@@ -15,6 +17,10 @@
 
         class ChartManager {
             createNewCancerCasesTrendsPieChart(data) {
+                for (var i = 0; i < data.length; i++) {
+                    data[i].color = chartColors[i];
+                }
+
                 am4core.useTheme(am4themes_material);
                 am4core.useTheme(am4themes_animated);
 
@@ -25,6 +31,7 @@
                 pieSeries.dataFields.value = "TotalCases";
                 pieSeries.dataFields.category = "CancerType";
 
+                pieSeries.slices.template.propertyFields.fill = "color";
                 pieSeries.slices.template.stroke = am4core.color("#fff");
                 pieSeries.slices.template.strokeWidth = 2;
                 pieSeries.slices.template.strokeOpacity = 1;
@@ -46,6 +53,7 @@
                 pieSeries.dataFields.value = "TotalDeaths";
                 pieSeries.dataFields.category = "CancerType";
 
+                pieSeries.slices.template.propertyFields.fill = "color";
                 pieSeries.slices.template.stroke = am4core.color("#fff");
                 pieSeries.slices.template.strokeWidth = 2;
                 pieSeries.slices.template.strokeOpacity = 1;
@@ -112,11 +120,17 @@
     	<div class="col-sm-8">
       		<asp:MultiView runat="server" id="QueryMultiView">
                 <asp:View id="NewCancerCasesTrends" runat="server">
-                    <div id="newCancerCasesChartDiv" style="width:80%;height:250px;"/>
+                    <div style="width:100%;height:100%;float:left;margin-bottom:30px;">
+                        <div style="text-align:center;font-size:2em;font-weight:bold;color:#333;margin-bottom:.5em;">New Cancer Cases, 2016</div>
+                        <div id="newCancerCasesChartDiv" style="display:inline-block;position:relative;width:100%;height:80%;vertical-align:middle;overflow:hidden;"/>
+                    </div>
                 </asp:View>
 
                 <asp:View id="CancerDeathsTrends" runat="server">
-                    <div id="cancerDeathsChartDiv" style="width:80%;height:250px;"/>
+                    <div style="width:100%;height:100%;float:left;margin-bottom:30px;">
+                        <div style="text-align:center;font-size:2em;font-weight:bold;color:#333;margin-bottom:.5em;">Cancer Deaths, 2016</div>
+                        <div id="cancerDeathsChartDiv" style="display:inline-block;position:relative;width:100%;height:80%;vertical-align:middle;overflow:hidden;"/>
+                    </div>
                 </asp:View>
                
                 <asp:View id="Trend1" runat="server">
