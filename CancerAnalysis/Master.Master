@@ -18,7 +18,7 @@
 </head>
 <body>
      <form id="form1" runat="server">
-        <div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D2">
+        <div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D255">
   		       <h1>Cancer Data Analysis</h1>
   		       <p>Statistics of all the Cancer diagnosed patients from various locations and sources throughout the United States.</p> 
 	    </div>
@@ -44,9 +44,9 @@
         </div>
         
 
-<div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D2" >
+<%--<div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D2" >
   <p>Footer</p>
-</div>
+</div>--%>
 </form>
 </body>
 </html>

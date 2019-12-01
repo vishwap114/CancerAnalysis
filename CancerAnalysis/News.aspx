@@ -2,6 +2,12 @@
 
             <asp:Content id="PageContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
                 news
+
+
+ 
+    
+
+
 </asp:Content>
         
   
