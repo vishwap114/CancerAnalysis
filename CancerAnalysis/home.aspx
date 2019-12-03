@@ -22,7 +22,7 @@ Cancer can start almost anywhere in the human body, which is made up of trillion
 </div>
 <div class="container" style="margin-top:30px">
     <p style="font-size: 16px">Click here to find out the number of patient records in out database</p>
-    <a href="#" onserverclick="numPatients" runat="server" class="btn btn-primary">Number of Patients</a>
+    <%--<a href="#" onserverclick="numPatients" runat="server" class="btn btn-primary">Number of Patients</a>--%>
 </div>
 </asp:Content>
         

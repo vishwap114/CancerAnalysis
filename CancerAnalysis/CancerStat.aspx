@@ -90,26 +90,24 @@
 <div class="container" style="margin-top:30px" runat="server">
   		<div class="row">
     		<div class="col-sm-4">
-      			<h3>Some Links</h3>
-      			<p>Lorem ipsum dolor sit ame.</p>
-                <div runat="server"> Trends
-      			<ul class="nav nav-pills flex-column">
+      			<h2>Cancer Statistics and Trends in USA</h2>
+  
+                <div runat="server"> <h3>Trends:</h3>
+      			<ul class="nav nav-pills flex-column" style="font-size:15px; color:black">
         			<li class="nav-item">
-          			<a class="nav-link" href="#"  onServerClick="onClickT1" runat="server">Occurence of Cancer Type according to Race</a>
+          			<a class="nav-link" href="#"  onServerClick="onClickT1" runat="server" >Occurence of Cancer Type according to Race</a>
         			</li>
         			<li class="nav-item">
 			          <a class="nav-link" href="#" onServerClick="onClickT2" runat="server" >Survival rate after a surgery for cancer</a>
 			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">Link</a>
-			        </li>
-			        <li class="nav-item">
+			       
+			       <%-- <li class="nav-item">
 			          <a class="nav-link disabled" href="#">Disabled</a>
-			        </li>
+			        </li>--%>
 			    </ul>
                 </div>
-                <div runat="server"> Facts
-      			<ul class="nav nav-pills flex-column">
+                <div runat="server"> <h3>Facts:</h3>
+      			<ul class="nav nav-pills flex-column"  style="font-size:15px; color:black">
         			<li class="nav-item">
           			    <a class="nav-link" href="#" onServerClick="GetNewCancerCasesTrends" runat="server">New cancer cases trend this year</a>
         			</li>
@@ -131,9 +129,9 @@
                     <li class="nav-item">
 			          <a class="nav-link" href="#" onServerClick="onClickF4" runat="server">Most common Origin accoring to cancer type</a>
 			        </li>
-			        <li class="nav-item">
+			        <%--<li class="nav-item">
 			          <a class="nav-link disabled" href="#">Disabled</a>
-			        </li>
+			        </li>--%>
 			    </ul>
                 </div>
       			<hr class="d-sm-none">
