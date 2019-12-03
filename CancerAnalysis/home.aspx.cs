@@ -14,5 +14,9 @@ namespace CancerAnalysis
             DatabaseHandler db = new DatabaseHandler();
             var temp = db.GetNewCancerCases();
         }
+        protected void allPatients(object sender, EventArgs e)
+        {
+
+        }
     }
 }

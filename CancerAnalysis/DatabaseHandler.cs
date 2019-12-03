@@ -106,6 +106,32 @@ namespace CancerAnalysis
             return result;
         }
 
+        public List<PatientRace> GetPatientRace()
+        {
+            if (!IsConnectionAlive()) OpenConnection();
+
+            var result = new List<PatientRace>();
+
+            using (OracleDataAdapter adapter = new OracleDataAdapter(Queries.patientByRace, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    PatientRace patientrace = new PatientRace
+                    {
+                        Race = dr["Race"].ToString(),
+                        Num_Patients = long.Parse(dr["NoOfPatients"].ToString())
+                    };
+
+                    result.Add(patientrace);
+                }
+            }
+
+
+            return result;
+        }
+
         public void finish()
         {
             CloseConnection();

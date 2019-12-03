@@ -6,43 +6,23 @@
 	<div class="container" style="margin-top:30px">
   		<div class="row">
     		<div class="col-sm-4">
-               
-      			<h2>About Me</h2>
-      			<h5>Photo of me:</h5>
-      			<div class="fakeimg">Fake Image</div>
-      			<p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      			<h3>Some Links</h3>
-      			<p>Lorem ipsum dolor sit ame.</p>
-      			<ul class="nav nav-pills flex-column">
-        			<li class="nav-item">
-          			<a class="nav-link active" href="#">Active</a>
-        			</li>
-        			<li class="nav-item">
-			          <a class="nav-link" href="#">Link</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">Link</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link disabled" href="#">Disabled</a>
-			        </li>
-			    </ul>
-      			<hr class="d-sm-none">
-    		</div>
+               <img src="cancer2.jpg"/>
+      		</div>
+            
     	<div class="col-sm-8">
-      		<h2>TITLE HEADING</h2>
-      		<h5>Title description, Dec 7, 2017</h5>
-      		<div class="fakeimg">Fake Image</div>
-      		<p>Some text..</p>
-      		<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      		<h2>CANCER</h2>
+      		<p style="font-size: 16px">Cancer is the name given to a collection of related diseases. In all types of cancer, some of the body’s cells begin to divide without stopping and spread into surrounding tissues.
+Cancer can start almost anywhere in the human body, which is made up of trillions of cells. Normally, human cells grow and divide to form new cells as the body needs them. When cells grow old or become damaged, they die, and new cells take their place.</p>
       	<br>
-      		<h2>TITLE HEADING</h2>
-      		<h5>Title description, Sep 2, 2017</h5>
-      		<div class="fakeimg">Fake Image</div>
-      		<p>Some text..</p>
-      		<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      		<h2>How Cancer Arises?</h2>
+      		<p style="font-size: 16px">Cancer is a genetic disease—that is, it is caused by changes to genes that control the way our cells function, especially how they grow and divide.</p>
+      		<p style="font-size: 16px">Genetic changes that cause cancer can be inherited from our parents. They can also arise during a person’s lifetime as a result of errors that occur as cells divide or because of damage to DNA caused by certain environmental exposures. Cancer-causing environmental exposures include substances, such as the chemicals in tobacco smoke, and radiation, such as ultraviolet rays from the sun.</p>
     	</div>
   	</div>
+</div>
+<div class="container" style="margin-top:30px">
+    <p style="font-size: 16px">Click here to find out the number of patient records in out database</p>
+    <a href="#" onserverclick="numPatients" runat="server" class="btn btn-primary">Number of Patients</a>
 </div>
 </asp:Content>
         

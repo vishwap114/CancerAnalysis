@@ -15,6 +15,11 @@
             chartManager.createCancerDeathTrendsPieChart(data);
         }
 
+        function createChartforPatientByRace(data){
+            chartManager = new ChartManager();
+            chartManager.createPatientByRaceBarChart(data);
+        }
+
         class ChartManager {
             createNewCancerCasesTrendsPieChart(data) {
                 for (var i = 0; i < data.length; i++) {
@@ -63,6 +68,22 @@
                 pieSeries.hiddenState.properties.endAngle = -90;
                 pieSeries.hiddenState.properties.startAngle = -90;
             }
+
+            createPatientByRaceBarChart(data) {
+                am4core.useTheme(am4themes_material);
+                am4core.useTheme(am4themes_animated);
+
+                var chart = am4core.create("patientRaceChartDiv", am4charts.XYChart);
+                chart.data = data;
+                var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+                categoryAxis.dataFields.category = "Race";
+                var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+                // Create series
+                var series = chart.series.push(new am4charts.ColumnSeries());
+                series.dataFields.valueY = "Num_Patients";
+                series.dataFields.categoryX = "Race";
+            }
         }
     </script>
 
@@ -99,7 +120,7 @@
           			<a class="nav-link" href="#" onServerClick="onClickF1" runat="server">New cancer cases trend this year</a>
         			</li>
                     <li class="nav-item">
-          			<a class="nav-link" href="#" onServerClick="onClickF1" runat="server">Number of patients for each race</a>
+          			<a class="nav-link" href="#" onServerClick="GetNumPatientByRace" runat="server">Number of patients for each race</a>
         			</li>
         			<li class="nav-item">
 			          <a class="nav-link" href="#" onServerClick="onClickF2" runat="server">Number of patients for each cancer type</a>
@@ -141,11 +162,15 @@
                    
                 <div class="Login"> hello2 </div>
                 </asp:View>
-                <asp:View id="Fact1" runat="server">
-                   
-                <div class="Login"> hello3 </div>
+                  
+                <asp:View id="RaceFact" runat="server">
+                    <div style="width:100%;height:100%;float:left;margin-bottom:30px;">
+                        <div style="text-align:center;font-size:2em;font-weight:bold;color:#333;margin-bottom:.5em;">Number of Patient Grouped by Race</div>
+                        <div id="patientRaceChartDiv" style="display:inline-block;position:relative;width:100%;height:80%;vertical-align:middle;overflow:hidden;"/>
+                    </div>
                 </asp:View>
-                <asp:View id="Fact2" runat="server">
+
+                <asp:View id="Fact1" runat="server">
                    
                 <div class="Login"> hello3 </div>
                 </asp:View>

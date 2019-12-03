@@ -36,11 +36,23 @@ namespace CancerAnalysis
             QueryMultiView.SetActiveView(CancerDeathsTrends);
         }
 
+        protected void GetNumPatientByRace(object sender, EventArgs e)
+        {
+            DatabaseHandler databaseHandler = new DatabaseHandler();
+            List<PatientRace> data = databaseHandler.GetPatientRace();
+
+            var response = new JavaScriptSerializer().Serialize(data);
+            ClientScript.RegisterStartupScript(GetType(), "Javascript",
+                "javascript:createChartforPatientByRace(" + response + "); ", true);
+
+            QueryMultiView.SetActiveView(RaceFact);
+        }
+
         protected void onClickT1(object sender, EventArgs e)
         {
-            QueryMultiView.SetActiveView(Trend1);
+            //QueryMultiView.SetActiveView(Trend1);
         }
-        
+
         protected void onClickT2(object sender, EventArgs e)
         {
             QueryMultiView.SetActiveView(Trend2);
@@ -53,7 +65,7 @@ namespace CancerAnalysis
         
         protected void onClickF2(object sender, EventArgs e)
         {
-            QueryMultiView.SetActiveView(Fact2);
+//            QueryMultiView.SetActiveView(Fact2);
         }
         
         protected void onClickF3(object sender, EventArgs e)

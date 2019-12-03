@@ -26,10 +26,11 @@
                                       "ORDER By Race";
 
         //Count of patients for each race
-        public static string query2 = "SELECT Race, COUNT(DISTINCT(Patient_ID)) AS NoOfPatients" +
-                                        "FROM MVDOSHI.patient" +
-                                        "GROUP BY Race" +
-                                        "ORDER BY Race";
+        public static string patientByRace = "SELECT Race, COUNT(DISTINCT(Patient_ID)) AS NoOfPatients " +
+                                        "FROM MVDOSHI.patient " +
+                                        "GROUP BY Race " +
+                                        "ORDER BY Race DESC " +
+                                        "FETCH FIRST 10 ROWS ONLY";
 
         // Count of patients for each cancer type
         public static string query3 = "SELECT s.site_name, COUNT(c.Patient_ID) AS NoOfPatients" +

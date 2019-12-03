@@ -60,6 +60,15 @@ namespace CancerAnalysis
         protected global::System.Web.UI.WebControls.View Trend2;
 
         /// <summary>
+        /// RaceFact control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View RaceFact;
+
+        /// <summary>
         /// Fact1 control.
         /// </summary>
         /// <remarks>
@@ -67,15 +76,6 @@ namespace CancerAnalysis
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View Fact1;
-
-        /// <summary>
-        /// Fact2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View Fact2;
 
         /// <summary>
         /// Fact3 control.
