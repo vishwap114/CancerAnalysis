@@ -70,7 +70,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="CancerStat.aspx" />
     <Content Include="CancerTrend.aspx" />
     <Content Include="home.aspx" />
@@ -80,13 +79,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CancerStat.aspx.cs">
       <DependentUpon>CancerStat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
