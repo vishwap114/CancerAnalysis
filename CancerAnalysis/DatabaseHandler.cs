@@ -132,6 +132,33 @@ namespace CancerAnalysis
             return result;
         }
 
+
+        public long GetTupleCount()
+        {
+            if (!IsConnectionAlive()) OpenConnection();
+
+            long result=0;
+
+            using (OracleDataAdapter adapter = new OracleDataAdapter(Queries.tupleCount, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+
+
+                    result = long.Parse(dr["tupleCount"].ToString());
+                   
+
+                }
+            }
+
+
+            return result;
+        }
+
+
+
         public void finish()
         {
             CloseConnection();

@@ -71,7 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CancerStat.aspx" />
-    <Content Include="CancerTrend.aspx" />
     <Content Include="home.aspx" />
     <Content Include="IncidenceRate.aspx" />
     <Content Include="News.aspx" />
@@ -85,13 +84,6 @@
     </Compile>
     <Compile Include="CancerStat.aspx.designer.cs">
       <DependentUpon>CancerStat.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CancerTrend.aspx.cs">
-      <DependentUpon>CancerTrend.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CancerTrend.aspx.designer.cs">
-      <DependentUpon>CancerTrend.aspx</DependentUpon>
     </Compile>
     <Compile Include="DatabaseHandler.cs" />
     <Compile Include="home.aspx.cs">

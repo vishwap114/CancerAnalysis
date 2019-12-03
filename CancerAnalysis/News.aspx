@@ -1,4 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="News.aspx.cs" Inherits="CancerAnalysis.News" MasterPageFile="Master.master" %>
+<asp:Content id="Content1" ContentPlaceHolderID="StyleContent" runat="server"> 
+
+
+    <style>
+            body {
+               font-family: "Times New Roman", Times, serif;
+            }
+            
+        </style>
+</asp:Content>
 
             <asp:Content id="PageContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
     
@@ -30,6 +40,8 @@
                   </div>
                 </div>
             </div>
+
+
  
 
 

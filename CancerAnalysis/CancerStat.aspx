@@ -1,5 +1,23 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CancerStat.aspx.cs" Inherits="CancerAnalysis.CancerStat" MasterPageFile="Master.master" %>
 
+<asp:Content id="Content1" ContentPlaceHolderID="StyleContent" runat="server"> 
+
+
+    <style>
+            body {
+               font-family: "Times New Roman", Times, serif;
+            }
+            .container a{
+                color:black;
+                font-family:"Comic Sans MS", cursive, sans-serif
+            }
+            .container a:hover{
+                color: rebeccapurple;
+            }
+        </style>
+</asp:Content>
+
+
 <asp:Content id="PageContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script type="text/javascript">
@@ -87,12 +105,12 @@
         }
     </script>
 
-<div class="container" style="margin-top:30px" runat="server">
+<div class="container" style="margin-top:30px; color:black" runat="server">
   		<div class="row">
     		<div class="col-sm-4">
-      			<h2>Cancer Statistics and Trends in USA</h2>
+      			<h2 style="font-weight:900; text-decoration:underline">Cancer Statistics and Trends in USA</h2>
   
-                <div runat="server"> <h3>Trends:</h3>
+                <div runat="server"> <h3 style="font-weight:800">Trends:</h3>
       			<ul class="nav nav-pills flex-column" style="font-size:15px; color:black">
         			<li class="nav-item">
           			<a class="nav-link" href="#"  onServerClick="onClickT1" runat="server" >Occurence of Cancer Type according to Race</a>
@@ -106,7 +124,7 @@
 			        </li>--%>
 			    </ul>
                 </div>
-                <div runat="server"> <h3>Facts:</h3>
+                <div runat="server" > <h3 style="font-weight:800">Facts:</h3>
       			<ul class="nav nav-pills flex-column"  style="font-size:15px; color:black">
         			<li class="nav-item">
           			    <a class="nav-link" href="#" onServerClick="GetNewCancerCasesTrends" runat="server">New cancer cases trend this year</a>

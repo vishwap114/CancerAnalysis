@@ -15,11 +15,13 @@
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+     <asp:ContentPlaceHolder ID="StyleContent" runat="server">
+            </asp:ContentPlaceHolder>
 </head>
 <body>
      <form id="form1" runat="server">
         <div class="jumbotron text-center" style="margin-bottom:0; background-color: #C0C3D255">
-  		       <h1>Cancer Data Analysis</h1>
+  		       <h1 style="text-shadow:2px 5px lightgray;">Cancer Data Analysis</h1>
   		       <p>Statistics of all the Cancer diagnosed patients from various locations and sources throughout the United States.</p> 
 	    </div>
 	    <nav class="nav navbar navbar-expand-sm navbar-light bg-light navbar-expand-sm bg-light justify-content-center" style="background-color:#C0C3D2; margin: 0; padding: 0">

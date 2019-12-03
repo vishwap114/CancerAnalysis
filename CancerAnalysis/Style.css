@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: 'Times New Roman';
+    font-family: "Times New Roman", Times, serif;
     margin: 0;
     min-height: 100%;
 }
@@ -55,3 +55,5 @@ nav li a {
 nav li a:hover {
         background-color: #C0C3D255;
 }
+
+
