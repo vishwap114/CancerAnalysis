@@ -45,76 +45,86 @@
         //-- Age Group: 0-20
         public static string query4 = "WITH PatientCount(maxPatient, CancerId) AS(" +
                                         "SELECT MAX(CountPID) AS MaxCountPID, Site from (" +
-                                            "SELECT COUNT(p.patient_id) as CountPID, c.site as Site, p.age" +
-                                            "FROM Mvdoshi.Patient p" +
-                                            "JOIN Pselugar.Case c ON c.patient_id = p.patient_id" +
-                                            "WHERE SUBSTR(p.age,0,2) >=0 and SUBSTR(p.age,0,2) <=20" +
+                                            "SELECT COUNT(p.patient_id) as CountPID, c.site as Site, p.age " +
+                                            "FROM Mvdoshi.Patient p " +
+                                            "JOIN Pselugar.Case c ON c.patient_id = p.patient_id " +
+                                            "WHERE SUBSTR(p.age,0,2) >=0 and SUBSTR(p.age,0,2) <=20 " +
                                             "GROUP BY c.site, p.age" +
                                            ")" +
-                                        "GROUP BY site" +
-                                        "ORDER BY MaxCountPID DESC" +
-                                        "FETCH FIRST ROW ONLY)" +
-                                    "SELECT s.site_name, p.maxPatient" +
-                                    "FROM PatientCount p" +
+                                        "GROUP BY site " +
+                                        "ORDER BY MaxCountPID DESC " +
+                                        "FETCH FIRST 5 ROWS ONLY)" +
+                                    "SELECT s.site_name AS cancerType, p.maxPatient AS PatientCount " +
+                                    "FROM PatientCount p " +
                                     "JOIN mvdoshi.site_master s ON s.site_id = p.CancerId";
 
         //-- Age Group: 20-40
-        public static string query5 = "WITH PatientCount(maxPatient, CancerId) AS (" +
-                                        "SELECT MAX(CountPID) AS MaxCountPID, Site from (" +
-                                            "SELECT COUNT(p.patient_id) as CountPID, c.site as Site, p.age" +
-                                            "FROM Mvdoshi.Patient p" +
-                                            "JOIN Pselugar.Case c ON c.patient_id = p.patient_id" +
-                                            "WHERE SUBSTR(p.age,0,2) >20 and SUBSTR(p.age,0,2) <=40" +
-                                            "GROUP BY c.site, p.age" +
-                                            ")" +
-                                        "GROUP BY site" +
-                                        "ORDER BY MaxCountPID DESC" +
-                                        "FETCH FIRST ROW ONLY)" +
-                                    "SELECT s.site_name, p.maxPatient" +
-                                    "FROM PatientCount p" +
-                                    "JOIN mvdoshi.site_master s ON s.site_id = p.CancerId";
+        public static string query5 = "WITH PatientCount(maxPatient, CancerId) AS(" +
+                                       "SELECT MAX(CountPID) AS MaxCountPID, Site from (" +
+                                           "SELECT COUNT(p.patient_id) as CountPID, c.site as Site, p.age " +
+                                           "FROM Mvdoshi.Patient p " +
+                                           "JOIN Pselugar.Case c ON c.patient_id = p.patient_id " +
+                                           "WHERE SUBSTR(p.age,0,2) >20 and SUBSTR(p.age,0,2) <=40 " +
+                                           "GROUP BY c.site, p.age" +
+                                          ")" +
+                                       "GROUP BY site " +
+                                       "ORDER BY MaxCountPID DESC " +
+                                       "FETCH FIRST 5 ROWS ONLY)" +
+                                   "SELECT s.site_name AS cancerType, p.maxPatient AS PatientCount " +
+                                   "FROM PatientCount p " +
+                                   "JOIN mvdoshi.site_master s ON s.site_id = p.CancerId";
 
         //-- Age Group: 40-60
-        public static string query6 = "WITH PatientCount(maxPatient, CancerId) AS (" +
+        public static string query6 = "WITH PatientCount(maxPatient, CancerId) AS(" +
                                        "SELECT MAX(CountPID) AS MaxCountPID, Site from (" +
-                                           "SELECT COUNT(p.patient_id) as CountPID, c.site as Site, p.age" +
-                                           "FROM Mvdoshi.Patient p" +
-                                           "JOIN Pselugar.Case c ON c.patient_id = p.patient_id" +
-                                           "WHERE SUBSTR(p.age,0,2) >40 and SUBSTR(p.age,0,2) <=60" +
+                                           "SELECT COUNT(p.patient_id) as CountPID, c.site as Site, p.age " +
+                                           "FROM Mvdoshi.Patient p " +
+                                           "JOIN Pselugar.Case c ON c.patient_id = p.patient_id " +
+                                           "WHERE SUBSTR(p.age,0,2) >40 and SUBSTR(p.age,0,2) <=60 " +
                                            "GROUP BY c.site, p.age" +
-                                           ")" +
-                                       "GROUP BY site" +
-                                       "ORDER BY MaxCountPID DESC" +
-                                       "FETCH FIRST ROW ONLY)" +
-                                   "SELECT s.site_name, p.maxPatient" +
-                                   "FROM PatientCount p" +
+                                          ")" +
+                                       "GROUP BY site " +
+                                       "ORDER BY MaxCountPID DESC " +
+                                       "FETCH FIRST 5 ROWS ONLY)" +
+                                   "SELECT s.site_name AS cancerType, p.maxPatient AS PatientCount " +
+                                   "FROM PatientCount p " +
                                    "JOIN mvdoshi.site_master s ON s.site_id = p.CancerId";
 
 
         //-- Age Group: 60 plus
-        public static string query7 = "WITH PatientCount(maxPatient, CancerId) AS (" +
+        public static string query7 = "WITH PatientCount(maxPatient, CancerId) AS(" +
                                        "SELECT MAX(CountPID) AS MaxCountPID, Site from (" +
-                                           "SELECT COUNT(p.patient_id) as CountPID, c.site as Site, p.age" +
-                                           "FROM Mvdoshi.Patient p" +
-                                           "JOIN Pselugar.Case c ON c.patient_id = p.patient_id" +
-                                           "WHERE SUBSTR(p.age,0,2) >40 and SUBSTR(p.age,0,2) <=60" +
+                                           "SELECT COUNT(p.patient_id) as CountPID, c.site as Site, p.age " +
+                                           "FROM Mvdoshi.Patient p " +
+                                           "JOIN Pselugar.Case c ON c.patient_id = p.patient_id " +
+                                           "WHERE SUBSTR(p.age,0,2) >60 " +
                                            "GROUP BY c.site, p.age" +
-                                           ")" +
-                                       "GROUP BY site" +
-                                       "ORDER BY MaxCountPID DESC" +
-                                       "FETCH FIRST ROW ONLY)" +
-                                   "SELECT s.site_name, p.maxPatient" +
-                                   "FROM PatientCount p" +
+                                          ")" +
+                                       "GROUP BY site " +
+                                       "ORDER BY MaxCountPID DESC " +
+                                       "FETCH FIRST 5 ROWS ONLY)" +
+                                   "SELECT s.site_name AS cancerType, p.maxPatient AS PatientCount " +
+                                   "FROM PatientCount p " +
                                    "JOIN mvdoshi.site_master s ON s.site_id = p.CancerId";
 
 
         // Number of patients for a particular cancer type for different years of diagnosis
 
-        public static string query8 = "SELECT COUNT(c.patient_id), s.site_name, Year_Of_Diagnosis" +
-                                        "FROM PSelugar.Case c" +
-                                        "JOIN MVDOSHI.Site_Master S ON S.Site_ID = c.Site" +
-                                        "WHERE s.site_name = 'Transverse Colon' " +                  //change  s.site_name according to inpute cancer type
-                                        "GROUP BY c.Year_Of_Diagnosis, s.site_name";
+        //public static string query8 = "SELECT COUNT(c.patient_id) as PatientCount, s.site_name, Year_Of_Diagnosis " +
+        //                                "FROM PSelugar.Case c " +
+        //                                "JOIN MVDOSHI.Site_Master S ON S.Site_ID = c.Site " +
+        //                                "WHERE s.site_name = " + cancerType +                  //change  s.site_name according to inpute cancer type
+        //                                " GROUP BY c.Year_Of_Diagnosis, s.site_name";
+
+        public string getYearPatient(string cancerType)
+        {
+            return "SELECT COUNT(c.patient_id) as PatientCount, s.site_name, Year_Of_Diagnosis " +
+                                        "FROM PSelugar.Case c " +
+                                        "JOIN MVDOSHI.Site_Master S ON S.Site_ID = c.Site " +
+                                        "WHERE s.site_name = " + cancerType.ToString() +                  //change  s.site_name according to inpute cancer type
+                                        " GROUP BY c.Year_Of_Diagnosis, s.site_name";
+
+        }
 
         // Display the most common origin according to cancer type
 
@@ -130,9 +140,9 @@
                                        "ORDER BY CancerType";
 
 
-        // Percent of people alive after a particular surgery group by cancer type : Display Pie Chart
+        // Percent of people alive after a particular surgery group by cancer type 
 
-        public static string query10 = "SELECT CancerType1,AliveCount/TotalCount*100 AS PercentageOfAlive" +
+        public static string query10 = "SELECT CancerType1,ROUND(AliveCount/TotalCount*100, 2) AS PercentageOfAlive" +
                                         "FROM" +
                                          "(SELECT s.site_name AS CancerType1, COUNT(c.Patient_ID) AS TotalCount" +
                                             "FROM PSelugar.Case c" +
@@ -157,6 +167,15 @@
 
                                             "SELECT S_Name AS State,ROUND(((PatientNo/Population)*100),2) AS IncidenceRate" +
                                             "FROM MVDOSHI.state_master s" +
+                                            "JOIN ResidentsCount r ON s.S_ID = r.StateCode";
+
+        public static string stateWiseIncidenceRate = "WITH ResidentsCount(PatientNo, StateCode) AS(" +
+                                            "SELECT COUNT(Patient_ID), SUBSTR(CODE,0,2) " +
+                                            "FROM Mvdoshi.Resident " +
+                                            "WHERE SUBSTR(CODE,0,2) NOT IN(15,97,98) " +
+                                            "GROUP BY SUBSTR(CODE,0,2)) " +
+                                            "SELECT S_Name AS State,ROUND(((PatientNo/Population)*100),2) AS IncidenceRate " +
+                                            "FROM MVDOSHI.state_master s " +
                                             "JOIN ResidentsCount r ON s.S_ID = r.StateCode";
 
 

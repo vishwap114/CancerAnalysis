@@ -47,6 +47,43 @@ namespace CancerAnalysis
 
             QueryMultiView.SetActiveView(RaceFact);
         }
+        protected void GetNumPatientByYear(object sender, EventArgs e)
+        {
+            string cancer = CancerTypeddl.SelectedValue;
+            DatabaseHandler databaseHandler = new DatabaseHandler();
+            List<TypeYearPatient> data = databaseHandler.GetPatientByYear(cancer);
+
+            var response = new JavaScriptSerializer().Serialize(data);
+            ClientScript.RegisterStartupScript(GetType(), "Javascript",
+                "javascript:createChartforPatientByYear(" + response + "); ", true);
+
+            QueryMultiView.SetActiveView(YearPatient);
+        }
+
+        protected void GetCancerByAge(object sender, EventArgs e)
+        {
+            int age = int.Parse(AgeGroupddl.SelectedValue);
+            DatabaseHandler databaseHandler = new DatabaseHandler();
+            List<Agewise> data = databaseHandler.GetTopCancerByAge(age);
+
+            var response = new JavaScriptSerializer().Serialize(data);
+            ClientScript.RegisterStartupScript(GetType(), "Javascript",
+                "javascript:createChartforCancerByAge(" + response + "); ", true);
+
+            QueryMultiView.SetActiveView(CancerAge);
+        }
+
+        protected void GetStateWiseIR(object sender, EventArgs e)
+        {
+            DatabaseHandler databaseHandler = new DatabaseHandler();
+            List<StateWiseIR> data = databaseHandler.GetStateWiseIR();
+            var response = new JavaScriptSerializer().Serialize(data);
+            ClientScript.RegisterStartupScript(GetType(), "Javascript",
+                "javascript:createStateWiseIRTrendChart(" + response + "); ", true);
+            QueryMultiView.SetActiveView(StateIR);
+        }
+
+
 
         protected void onClickT1(object sender, EventArgs e)
         {
@@ -68,9 +105,14 @@ namespace CancerAnalysis
 //            QueryMultiView.SetActiveView(Fact2);
         }
         
-        protected void onClickF3(object sender, EventArgs e)
+        protected void onClickYearPatient(object sender, EventArgs e)
         {
-            QueryMultiView.SetActiveView(Fact3);
+            QueryMultiView.SetActiveView(YearPatient);
+            //int x = int.Parse(CancerTypeddl.SelectedValue);
+            //if (x == 1)
+               
+            
+                
         }
         
         protected void onClickF4(object sender, EventArgs e)

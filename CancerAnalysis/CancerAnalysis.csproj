@@ -107,7 +107,10 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="Model\Agewise.cs" />
     <Compile Include="Model\CancerCase.cs" />
+    <Compile Include="Model\StateWiseIR.cs" />
+    <Compile Include="Model\TypeYearPatient.cs" />
     <Compile Include="News.aspx.cs">
       <DependentUpon>News.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -131,6 +131,91 @@ namespace CancerAnalysis
 
             return result;
         }
+        public List<TypeYearPatient> GetPatientByYear(string cancer)
+        {
+            if (!IsConnectionAlive()) OpenConnection();
+            cancer = "'" + cancer + "'";
+            var result = new List<TypeYearPatient>();
+            Queries obj = new Queries();
+            string query = obj.getYearPatient(cancer);
+            using (OracleDataAdapter adapter = new OracleDataAdapter(query, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    TypeYearPatient yearpatient = new TypeYearPatient
+                    {
+                        Year = dr["Year_Of_Diagnosis"].ToString(),
+                        Patients = dr["PatientCount"].ToString()
+                    };
+
+                    result.Add(yearpatient);
+                }
+            }
+
+
+            return result;
+        }
+
+        public List<Agewise> GetTopCancerByAge(int age)
+        {
+            if (!IsConnectionAlive()) OpenConnection();
+            var result = new List<Agewise>();
+            Queries obj = new Queries();
+            string query="";
+            if (age == 1)
+                query = Queries.query4;
+            else if (age == 2)
+                query = Queries.query5;
+            else if (age == 3)
+                query = Queries.query6;
+            else if (age == 4)
+                query = Queries.query7;
+            using (OracleDataAdapter adapter = new OracleDataAdapter(query, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Agewise agepatient = new Agewise
+                    {
+                        CancerType = dr["cancerType"].ToString(),
+                        Patients = dr["PatientCount"].ToString()
+                    };
+
+                    result.Add(agepatient);
+                }
+            }
+
+
+            return result;
+        }
+
+        public List<StateWiseIR> GetStateWiseIR()
+        {
+            if (!IsConnectionAlive()) OpenConnection();
+
+            var result = new List<StateWiseIR>();
+
+            using (OracleDataAdapter adapter = new OracleDataAdapter(Queries.stateWiseIncidenceRate, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    StateWiseIR stateIR = new StateWiseIR
+                    {
+                        State = dr["State"].ToString(),
+                        IncidenceRate = double.Parse(dr["IncidenceRate"].ToString())
+                    };
+
+                    result.Add(stateIR);
+                }
+            }
+            return result;
+        }
 
 
         public long GetTupleCount()
