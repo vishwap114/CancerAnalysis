@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CancerAnalysis {
-    
-    
-    public partial class CancerStat {
-        
+namespace CancerAnalysis
+{
+
+
+    public partial class CancerStat
+    {
+
         /// <summary>
         /// AgeGroupddl control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList AgeGroupddl;
-        
+
         /// <summary>
         /// CancerTypeddl control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList CancerTypeddl;
-        
+
         /// <summary>
         /// QueryMultiView control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.MultiView QueryMultiView;
-        
+
         /// <summary>
         /// NewCancerCasesTrends control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View NewCancerCasesTrends;
-        
+
         /// <summary>
         /// CancerDeathsTrends control.
         /// </summary>
@@ -56,25 +58,7 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View CancerDeathsTrends;
-        
-        /// <summary>
-        /// Trend1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View Trend1;
-        
-        /// <summary>
-        /// Trend2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View Trend2;
-        
+
         /// <summary>
         /// RaceFact control.
         /// </summary>
@@ -83,16 +67,7 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View RaceFact;
-        
-        /// <summary>
-        /// Fact1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View Fact1;
-        
+
         /// <summary>
         /// YearPatient control.
         /// </summary>
@@ -101,7 +76,7 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View YearPatient;
-        
+
         /// <summary>
         /// CancerAge control.
         /// </summary>
@@ -110,7 +85,7 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View CancerAge;
-        
+
         /// <summary>
         /// StateIR control.
         /// </summary>
@@ -119,23 +94,41 @@ namespace CancerAnalysis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View StateIR;
-        
+
         /// <summary>
-        /// Fact3Type2 control.
+        /// CancerTypeByRaceView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View Fact3Type2;
-        
+        protected global::System.Web.UI.WebControls.View CancerTypeByRaceView;
+
         /// <summary>
-        /// Fact4 control.
+        /// SurvivalRateGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View Fact4;
+        protected global::System.Web.UI.WebControls.View SurvivalRateGrid;
+
+        /// <summary>
+        /// PatientCountByCancerType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View PatientCountByCancerType;
+
+        /// <summary>
+        /// OriginByCancerType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View OriginByCancerType;
     }
 }

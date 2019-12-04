@@ -20,7 +20,7 @@ namespace CancerAnalysis
 
             connection = new OracleConnection
             {
-                ConnectionString = "User ID=vbpatel; Password=safeacc11; Data Source=oracle.cise.ufl.edu/orcl;"
+                ConnectionString = "User ID=sh3; Password=Netu0611; Data Source=oracle.cise.ufl.edu/orcl;"
             };
             connection.Open();
         }
@@ -128,7 +128,6 @@ namespace CancerAnalysis
                 }
             }
 
-
             return result;
         }
         public List<TypeYearPatient> GetPatientByYear(string cancer)
@@ -136,9 +135,7 @@ namespace CancerAnalysis
             if (!IsConnectionAlive()) OpenConnection();
             cancer = "'" + cancer + "'";
             var result = new List<TypeYearPatient>();
-            Queries obj = new Queries();
-            string query = obj.getYearPatient(cancer);
-            using (OracleDataAdapter adapter = new OracleDataAdapter(query, connection))
+            using (OracleDataAdapter adapter = new OracleDataAdapter(Queries.YearPatientQuery.Replace("$CANCER_TYPE$", cancer), connection))
             {
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -188,7 +185,6 @@ namespace CancerAnalysis
                 }
             }
 
-
             return result;
         }
 
@@ -217,7 +213,6 @@ namespace CancerAnalysis
             return result;
         }
 
-
         public long GetTupleCount()
         {
             if (!IsConnectionAlive()) OpenConnection();
@@ -230,19 +225,112 @@ namespace CancerAnalysis
                 adapter.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-
-
                     result = long.Parse(dr["tupleCount"].ToString());
-                   
-
                 }
             }
-
 
             return result;
         }
 
+        public List<PatientRace> GetCancerTypeByRace()
+        {
+            if (!IsConnectionAlive()) OpenConnection();
 
+            var result = new List<PatientRace>();
+            using (OracleDataAdapter adapter = new OracleDataAdapter(Queries.CancerTypeByRaceQuery, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    var patientRace = new PatientRace
+                    {
+                        Race = dr["Race"].ToString(),
+                        Num_Patients = long.Parse(dr["Count"].ToString())
+                    };
+
+                    result.Add(patientRace);
+                }
+            }
+
+            return result;
+        }
+
+        public List<CancerCase> GetSurvivalRateAfterSurgery()
+        {
+            if (!IsConnectionAlive()) OpenConnection();
+
+            var result = new List<CancerCase>();
+            using (OracleDataAdapter adapter = new OracleDataAdapter(Queries.SurvivalRateQuery, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    var cancerCase = new CancerCase
+                    {
+                        CancerType = dr["CancerType1"].ToString(),
+                        PercentOfPeopleAlive = dr["PercentageOfAlive"].ToString()
+                    };
+
+                    result.Add(cancerCase);
+                }
+            }
+
+            return result;
+        }
+
+        public List<CancerCase> GetPatientCountForCancerType()
+        {
+            if (!IsConnectionAlive()) OpenConnection();
+
+            var result = new List<CancerCase>();
+            using (OracleDataAdapter adapter = new OracleDataAdapter(Queries.PatientCountByCancerType, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    var cancerCase = new CancerCase
+                    {
+                        CancerType = dr["site_name"].ToString(),
+                        TotalCases = long.Parse(dr["NoOfPatients"].ToString())
+                    };
+
+                    result.Add(cancerCase);
+                }
+            }
+
+            return result;
+        }
+
+        public List<CancerCase> GetOriginByCancerType()
+        {
+            if (!IsConnectionAlive()) OpenConnection();
+
+            var result = new List<CancerCase>();
+            using (OracleDataAdapter adapter = new OracleDataAdapter(Queries.CommonOriginByCancerType, connection))
+            {
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    var cancerCase = new CancerCase
+                    {
+                        Origin = dr["Origin"].ToString(),
+                        TotalCases = long.Parse(dr["Count"].ToString())
+                    };
+
+                    result.Add(cancerCase);
+                }
+            }
+
+            return result;
+        }
 
         public void finish()
         {

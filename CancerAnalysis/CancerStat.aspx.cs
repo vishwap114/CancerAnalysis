@@ -7,14 +7,15 @@ namespace CancerAnalysis
 {
     public partial class CancerStat : System.Web.UI.Page
     {
+        DatabaseHandler databaseHandler;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            databaseHandler = new DatabaseHandler();
         }
 
         protected void GetNewCancerCasesTrends(object sender, EventArgs e)
         {
-            DatabaseHandler databaseHandler = new DatabaseHandler();
             List<CancerCase> data = databaseHandler.GetNewCancerCases();
 
             var response = new JavaScriptSerializer().Serialize(data);
@@ -26,7 +27,6 @@ namespace CancerAnalysis
 
         protected void GetCancerDeathsTrends(object sender, EventArgs e)
         {
-            DatabaseHandler databaseHandler = new DatabaseHandler();
             List<CancerCase> data = databaseHandler.GetCancerDeaths();
 
             var response = new JavaScriptSerializer().Serialize(data);
@@ -38,7 +38,6 @@ namespace CancerAnalysis
 
         protected void GetNumPatientByRace(object sender, EventArgs e)
         {
-            DatabaseHandler databaseHandler = new DatabaseHandler();
             List<PatientRace> data = databaseHandler.GetPatientRace();
 
             var response = new JavaScriptSerializer().Serialize(data);
@@ -50,7 +49,6 @@ namespace CancerAnalysis
         protected void GetNumPatientByYear(object sender, EventArgs e)
         {
             string cancer = CancerTypeddl.SelectedValue;
-            DatabaseHandler databaseHandler = new DatabaseHandler();
             List<TypeYearPatient> data = databaseHandler.GetPatientByYear(cancer);
 
             var response = new JavaScriptSerializer().Serialize(data);
@@ -63,7 +61,6 @@ namespace CancerAnalysis
         protected void GetCancerByAge(object sender, EventArgs e)
         {
             int age = int.Parse(AgeGroupddl.SelectedValue);
-            DatabaseHandler databaseHandler = new DatabaseHandler();
             List<Agewise> data = databaseHandler.GetTopCancerByAge(age);
 
             var response = new JavaScriptSerializer().Serialize(data);
@@ -75,7 +72,6 @@ namespace CancerAnalysis
 
         protected void GetStateWiseIR(object sender, EventArgs e)
         {
-            DatabaseHandler databaseHandler = new DatabaseHandler();
             List<StateWiseIR> data = databaseHandler.GetStateWiseIR();
             var response = new JavaScriptSerializer().Serialize(data);
             ClientScript.RegisterStartupScript(GetType(), "Javascript",
@@ -83,41 +79,45 @@ namespace CancerAnalysis
             QueryMultiView.SetActiveView(StateIR);
         }
 
-
-
-        protected void onClickT1(object sender, EventArgs e)
+        protected void GetOccuranceOfCancerTypeByRace(object sender, EventArgs e)
         {
-            //QueryMultiView.SetActiveView(Trend1);
+            List<PatientRace> data = databaseHandler.GetCancerTypeByRace();
+            var response = new JavaScriptSerializer().Serialize(data);
+            ClientScript.RegisterStartupScript(GetType(), "Javascript",
+                "javascript:showCancerTypeByRace(" + response + "); ", true);
+            QueryMultiView.SetActiveView(CancerTypeByRaceView);
         }
 
-        protected void onClickT2(object sender, EventArgs e)
+        protected void GetSurvivalRateAfterSurgery(object sender, EventArgs e)
         {
-            QueryMultiView.SetActiveView(Trend2);
+            List<CancerCase> data = databaseHandler.GetSurvivalRateAfterSurgery();
+            var response = new JavaScriptSerializer().Serialize(data);
+            ClientScript.RegisterStartupScript(GetType(), "Javascript",
+                "javascript:showSurvivalRateGrid(" + response + "); ", true);
+            QueryMultiView.SetActiveView(SurvivalRateGrid);
         }
-        
-        protected void onClickF1(object sender, EventArgs e)
+
+        protected void GetNumberOfPatientByCancerType(object sender, EventArgs e)
         {
-            QueryMultiView.SetActiveView(Fact1);
+            List<CancerCase> data = databaseHandler.GetPatientCountForCancerType();
+            var response = new JavaScriptSerializer().Serialize(data);
+            ClientScript.RegisterStartupScript(GetType(), "Javascript",
+                "javascript:showPatientCountForCancerTypeGrid(" + response + "); ", true);
+            QueryMultiView.SetActiveView(PatientCountByCancerType);
         }
-        
-        protected void onClickF2(object sender, EventArgs e)
+
+        protected void GetMostCommonOriginByCancerType(object sender, EventArgs e)
         {
-//            QueryMultiView.SetActiveView(Fact2);
+            List<CancerCase> data = databaseHandler.GetOriginByCancerType();
+            var response = new JavaScriptSerializer().Serialize(data);
+            ClientScript.RegisterStartupScript(GetType(), "Javascript",
+                "javascript:showOriginByCancerTypeGrid(" + response + "); ", true);
+            QueryMultiView.SetActiveView(OriginByCancerType);
         }
-        
-        protected void onClickYearPatient(object sender, EventArgs e)
+
+        protected void Page_UnLoad(object sender, EventArgs e)
         {
-            QueryMultiView.SetActiveView(YearPatient);
-            //int x = int.Parse(CancerTypeddl.SelectedValue);
-            //if (x == 1)
-               
-            
-                
-        }
-        
-        protected void onClickF4(object sender, EventArgs e)
-        {
-            QueryMultiView.SetActiveView(Fact4);
+            databaseHandler.finish();
         }
     }
 }
