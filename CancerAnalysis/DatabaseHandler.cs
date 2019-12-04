@@ -247,6 +247,7 @@ namespace CancerAnalysis
                     var patientRace = new PatientRace
                     {
                         Race = dr["Race"].ToString(),
+                        CancerType = dr["Site_name"].ToString(),
                         Num_Patients = long.Parse(dr["Count"].ToString())
                     };
 
@@ -321,6 +322,7 @@ namespace CancerAnalysis
                 {
                     var cancerCase = new CancerCase
                     {
+                        CancerType = dr["CancerType"].ToString(),
                         Origin = dr["Origin"].ToString(),
                         TotalCases = long.Parse(dr["Count"].ToString())
                     };

@@ -102,7 +102,7 @@ Cancer can start almost anywhere in the human body, which is made up of trillion
   	</div>
 </div>
 <div class="container" style="margin-top:5%; float:left; width: max-content; margin-bottom:2%">
-    <p style="font-size: 15px; float:left; margin:2%; color:grey">Click here to find out the number of tuples in our database:</p>
+    <p style="font-size: 15px; float:left; margin:2%; color:grey">Click here to find out the number of patients in our database:</p>
     <asp:Button ID="tupleButton" runat="server" OnClick="tupleButton_Click" Text="Click Me!"  class="btn btn-primary"   style="font-size:15px;color:black; background-color:lightgray; border-color:lightgray; margin: 2%"/>
 </div>
 

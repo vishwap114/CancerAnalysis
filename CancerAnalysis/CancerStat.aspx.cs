@@ -12,6 +12,8 @@ namespace CancerAnalysis
         protected void Page_Load(object sender, EventArgs e)
         {
             databaseHandler = new DatabaseHandler();
+
+            GetNewCancerCasesTrends(null, null);
         }
 
         protected void GetNewCancerCasesTrends(object sender, EventArgs e)

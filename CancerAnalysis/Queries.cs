@@ -15,16 +15,16 @@
                 "GROUP BY SITE_NAME ORDER BY TotalDeaths DESC";
 
         //Display which cancer type occurs the most according to Race
-        public static string CancerTypeByRaceQuery = "SELECT Race, MAX(Count_of_Patients) AS Count " +
+        public static string CancerTypeByRaceQuery = "SELECT Race, Site_name, MAX(Count_of_Patients) AS Count " +
                                       "FROM( " +
                                           "SELECT Site_name, P.race AS Race, COUNT(C.Patient_ID) AS Count_of_Patients " +
                                           "FROM MVDOSHI.site_master S " +
                                           "JOIN Pselugar.Case C ON C.Site = S.Site_ID " +
                                           "JOIN MVDOSHI.patient P ON P.Patient_ID = C.Patient_ID " +
                                           "GROUP BY P.Race, Site_name " +
-                                          "ORDER BY P.Race " +
+                                          "ORDER BY Count_of_Patients DESC " +
                                       ") " +
-                                      "Group BY Race " +
+                                      "Group BY Race,Site_name " +
                                       "ORDER By Race";
 
         //Count of patients for each race
@@ -123,7 +123,7 @@
                                         " GROUP BY c.Year_Of_Diagnosis, s.site_name";
 
         // Display the most common origin according to cancer type
-        public static string CommonOriginByCancerType = "SELECT Origin, MAX(NoOfPatients) AS Count " +
+        public static string CommonOriginByCancerType = "SELECT CancerType, Origin, MAX(NoOfPatients) AS Count " +
                                        "FROM( " +
                                            "SELECT o.name AS Origin, s.site_name AS CancerType, COUNT(c.Patient_ID) AS NoOfPatients " +
                                            "FROM PSelugar.Case c " +
@@ -131,8 +131,8 @@
                                            "JOIN MVDOSHI.Site_master s ON s.site_ID = c.site " +
                                            "GROUP BY s.site_name, o.name " +
                                            "ORDER BY s.site_name) " +
-                                       "GROUP BY Origin " +
-                                       "ORDER BY Origin";
+                                       "GROUP BY CancerType, Origin " +
+                                       "ORDER BY CancerType";
 
 
         // Percent of people alive after a particular surgery group by cancer type 

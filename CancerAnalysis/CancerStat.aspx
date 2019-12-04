@@ -75,7 +75,8 @@
         class GridManager {
             createCancerTypeByRaceGrid(data) {
                 var columnDefs = [
-                    { headerName: "Race", field: "Race"},
+                    { headerName: "Race", field: "Race" },
+                    { headerName: "Cancer Type", field: "CancerType"},
                     { headerName: "Number of patients", field: "Num_Patients"}
                 ];
 
@@ -129,6 +130,7 @@
 
             createOriginByCancerTypeGrid(data) {
                 var columnDefs = [
+                    { headerName: "Cancer Type", field: "CancerType" },
                     { headerName: "Origin", field: "Origin" },
                     { headerName: "Number of patient", field: "TotalCases" }
                 ];
@@ -287,14 +289,26 @@
                 <h2 style="font-weight: 900; text-decoration: underline">Cancer Statistics and Trends in USA</h2>
 
                 <div runat="server">
-                    <h3 style="font-weight: 800">Trends:</h3>
+                    <!--<h3 style="font-weight: 800">Trends and Facts:</h3>-->
                     <ul class="nav nav-pills flex-column" style="font-size: 15px; color: black">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onserverclick="GetOccuranceOfCancerTypeByRace" runat="server">Occurence of Cancer Type according to Race</a>
+                            <a class="nav-link" href="#" onserverclick="GetNewCancerCasesTrends" runat="server">New cancer cases trend this year</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onserverclick="GetCancerDeathsTrends" runat="server">Cancer deaths trend this year</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onserverclick="GetNumPatientByRace" runat="server">Number of patients for each race</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onserverclick="GetOccuranceOfCancerTypeByRace" runat="server">Occurence of Cancer according to Race and Cancer Type</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#" onserverclick="GetSurvivalRateAfterSurgery" runat="server">Survival rate after a surgery for cancer</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="#" runat="server">Popular cancer type according to different age groups
                            <asp:DropDownList ID="AgeGroupddl" runat="server" OnSelectedIndexChanged="GetCancerByAge" AutoPostBack="true">
@@ -343,20 +357,8 @@
                             </asp:DropDownList>
                             </a>
                         </li>
-                    </ul>
-                </div>
-                <div runat="server" style="margin-top: 3%">
-                    <h3 style="font-weight: 800">Facts:</h3>
-                    <ul class="nav nav-pills flex-column" style="font-size: 15px; color: black">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onserverclick="GetNewCancerCasesTrends" runat="server">New cancer cases trend this year</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onserverclick="GetCancerDeathsTrends" runat="server">Cancer deaths trend this year</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onserverclick="GetNumPatientByRace" runat="server">Number of patients for each race</a>
-                        </li>
+
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="#" onserverclick="GetStateWiseIR" runat="server">State Wise Incidence Rate</a>
                         </li>
@@ -367,11 +369,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#" onserverclick="GetMostCommonOriginByCancerType" runat="server">Most common Origin according to cancer type</a>
                         </li>
-                        <%--<li class="nav-item">
-			          <a class="nav-link disabled" href="#">Disabled</a>
-			        </li>--%>
+
                     </ul>
                 </div>
+                <%--<div runat="server" style="margin-top: 3%">
+                    <h3 style="font-weight: 800">Facts:</h3>
+                    <ul class="nav nav-pills flex-column" style="font-size: 15px; color: black">
+                        
+                        <li class="nav-item">
+			          <a class="nav-link disabled" href="#">Disabled</a>
+			        </li>
+                    </ul>
+                </div>--%>
                 <hr class="d-sm-none">
             </div>
             <div class="col-sm-8">
@@ -420,7 +429,7 @@
 
                     <asp:View ID="CancerTypeByRaceView" runat="server">
                         <div style="width: 100%; height: 100%; float: left; margin-bottom: 30px;">
-                            <div style="text-align: center; font-size: 2em; font-weight: bold; color: #333; margin-bottom: .5em;">Occurence of Cancer Type according to Race</div>
+                            <div style="text-align: center; font-size: 2em; font-weight: bold; color: #333; margin-bottom: .5em;">Occurence of Cancer according to Race and Cancer Type</div>
                             <div id="cancer-type-by-race-grid" style="display: inline-block; position: relative; width: 100%; height: 80%; vertical-align: middle; overflow: hidden;" class="ag-theme-balham"></div>
                         </div>
                     </asp:View>
